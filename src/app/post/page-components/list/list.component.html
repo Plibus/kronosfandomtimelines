@@ -1,0 +1,37 @@
+<div class="container-fluid" id="list">
+    <div class="row banner">
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-main">
+            <div class="container">
+                <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">                   
+                    <div class="col-12">
+                        <div class="float-left">
+                            <h6 class="mb-0 text-white lh-100 capitalize">{{catagory}}</h6>
+                            <br>
+                            <h6 class="mb-0 text-white lh-100">Sort by...</h6>
+                            <select class="selectpicker" 
+                                data-style="btn-success"> 
+                                <option>Update</option> 
+                                <option>Created</option> 
+                                <option>Alphetically</option> 
+                                <option>Likes</option> 
+                                <option>Views</option> 
+                            </select>
+                        </div>
+                        <div class="float-right">
+                            <input class="form-control" id="search" type="text" placeholder="{{ 'Search ' + catagory}}">
+                            <a class="btn btn-dark float-right" href="#" [routerLink]="['/post', this.fandomId, -1, type, catagory, 1]">{{'Create '+ catagory }}</a>
+                        </div>
+                    </div>
+                <div>         
+            </div>
+        </div>
+        <ul id="list">
+            <li class="my-3 p-3 bg-white rounded box-shadow" *ngFor="let post of posts$ | async">
+                <list-element [post]="post">
+                </list-element>
+            </li>
+        </ul>
+    </div>
+</div>

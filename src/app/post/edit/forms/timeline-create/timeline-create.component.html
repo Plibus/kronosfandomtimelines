@@ -1,0 +1,54 @@
+<div class="fluid-container edit-container">
+
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="postForm">
+                <ng-template #timelineTemplate>
+                    <div class="row">
+                        <div class="row">
+                            <input type="text" formControlName="title" class="form-control">
+                            <input type="text" formControlName="description" class="form-control">
+                            
+                            <select class="form-control" (change)="selectSlideOption($event.target.value)" class="form-control" >
+                                <option *ngFor="let slideType of slideTypes" [value]="slideType.index">{{ slideType.name }}</option>
+                            </select>
+                            <button type="button" class="btn" (click)="addSlide(i, slideTypes[selectedSlideType].arrayName)">Add Slide</button>
+                            <div class="col-12 timeline-col">
+                                <div formArrayName = "title">
+                                    <div *ngFor="let title of getSlideArray(i, 'title')['controls']; let titleIndex=index" [formGroupName]="titleIndex">
+                                        <div class="row">
+                                            <div class="row">
+                                                <p>TITLE</p>
+                                                <input type="text" [formControlName]="headline" class="form-control">
+                                            </div>
+                                            <div class="col-12">
+                                                <button (click)="removeSlide(titleIndex, i, 'title')" class="btn btn-danger float-right">Remove Slide</button>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button (click)="removeSection(i)" class="btn btn-danger float-right">Remove</button>
+                    </div>
+                    </div> 
+                </ng-template>
+
+                <ng-template #mapTemplate>
+                    <div class="row">
+                        <div class="row">
+                            <input type="text" formControlName="sectionTitle" class="form-control">
+                            <div class="col-12 timeline-col">
+                                
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button (click)="removeSection(i)" class="btn btn-danger float-right">Remove</button>
+                    </div>
+                    </div> 
+                </ng-template>
+            </form>
+        </div>
+    </div>
+</div>

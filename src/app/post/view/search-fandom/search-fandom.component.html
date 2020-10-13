@@ -1,0 +1,31 @@
+<div class="fluid-container view-page-container">
+    <div class="fluid-container view-content-container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation"> 
+        <a class="navbar-brand" href="#" [routerLink]="['/post', id, id, 'fandom', 'fandom', 0]">{{name}}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Explore
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" [routerLink]="['/searchfandom', id]">All</a>
+                  <a class="dropdown-item" [routerLink]="['/searchfandom', id, name, 'post', 'article']">Articles</a>
+                  <a class="dropdown-item" [routerLink]="['/searchfandom', id, name, 'post', 'character']">Characters</a>
+                  <a class="dropdown-item" [routerLink]="['/searchfandom', id, name, 'post', 'event']">Events</a>
+                  <a class="dropdown-item" [routerLink]="['/searchfandom', id, name, 'post', 'geography']">Geography</a>
+                </div>
+              </li>
+          </ul>
+        </div>
+      </nav>
+      
+      <div id="list-content" class="fluid-container page-content">
+        <list [fandomId] = id [catagory] = catagory [type] = type></list>
+      </div>
+    </div>
+</div>

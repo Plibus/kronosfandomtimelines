@@ -1,0 +1,115 @@
+<div class="fluid-container page-content">
+    <div class="row">
+        <div class="col-12 title-content">
+            <h1>{{post.name}}</h1>
+        </div>
+    </div>
+    <div class="row catagories-content text-center catList justify-content-center">
+        <div *ngFor="let cat of catagories">
+            <div class="cat text-center">
+                <a [routerLink]="['/searchfandom', post.id, post.name, cat.type, cat.catagory]" title={{cat.catagory}}>
+                    <img [src]=getImageURL(cat.catagory) width="100" height="100">
+                    <p>{{cat.display}}</p>
+                </a>
+            </div>
+        </div>
+        <div class="cat text-center">
+            <a [routerLink]="['/post/gallery', post.id, post.name]" title=images>
+                <img src='../../assets/catagory/image.jpg' width="100" height="100">
+                <p>Images</p>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 introduction-content">
+            <div *ngFor="let section of post?.data?.sections">
+    
+            <ng-template *ngIf="section.type == 'text'; then textTemplate"></ng-template>
+            <ng-template *ngIf="section.type == 'textRP'; then textRPTemplate"></ng-template>
+            <ng-template *ngIf="section.type == 'textLP'; then textLPTemplate"></ng-template>
+            <ng-template *ngIf="section.type == 'table'; then tableTemplate"></ng-template>
+    
+    
+            <ng-template #textTemplate>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="section-title">{{section.sectionTitle}}</h2>
+                        </div>
+                        <div class="col-12">
+                            <div [innerHTML]="section.text"></div>
+                        </div>
+                    </div>
+                </div> 
+            </ng-template>
+    
+            <ng-template #textRPTemplate>
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-title">{{section.sectionTitle}}</h2>
+                    </div>
+                    <div class="col-8">
+                        <div [innerHTML]="section.text"></div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="img-container">
+                                    <img class="img-to-fit" [src]=section.media [alt]=section.mediaAlt onerror="this.onerror=null; this.src= '../../../../assets/no-image.png'">
+                                </div>
+                                <p class="card-text">{{section.mediaCaption}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+    
+            <ng-template #textLPTemplate>
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-title">{{section.sectionTitle}}</h2>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="img-container">
+                                    <img class="img-to-fit" [src]=section.media [alt]=section.mediaAlt onerror="this.onerror=null; this.src= '../../../../assets/no-image.png'">
+                                </div>
+                                <p class="card-text">{{section.mediaCaption}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div [innerHTML]="section.text"></div>
+                    </div>
+                </div>
+            </ng-template>
+    
+            <ng-template #tableTemplate>
+                <div class="row">
+                    <div class="row">
+                        <input type="text" formControlName="sectionTitle" class="form-control">
+                        <div class="col-12 table-col">
+                            
+                        </div>
+                    </div>
+                </div> 
+            </ng-template>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <p class="created-data"> CREATED: {{ post.created | date :'short' }} <br> UPDATED: {{ post.updated | date :'short' }}</p>
+        </div> 
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <list [fandomId] = id></list>
+        </div>
+    </div>
+    
+</div>
+<a class="btn btn-dark float-right" href="#" [routerLink]="['/post', id, id, 'fandom', 'fandom', 1]">Edit</a>

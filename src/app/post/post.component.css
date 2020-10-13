@@ -1,0 +1,33 @@
+.float-right-nav {
+    float: right;
+}
+
+.view-page-container {
+    background-color: grey;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.view-content-container {
+    padding: 2vh;
+}
+
+.page-content {
+    background-color: wheat;   
+}
+
+.row {
+    padding: 0;
+    margin: 0;
+}
+
+.title-content {
+    text-align: center;
+}
+
+.row {
+    margin: 0;
+}

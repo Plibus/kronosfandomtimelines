@@ -1,0 +1,74 @@
+<div class="fluid-container view-page-container">
+    <div class="fluid-container view-content-container">
+        
+
+        <div *ngIf="getEdit() == true; else elseView">
+            <div *ngIf="getType() != 'post'; else elseCreate">
+                <div *ngIf="getType() == 'family-tree'">
+                    <family-tree-create [id] = getID()></family-tree-create>
+                </div>
+                <div *ngIf="getType() == 'fandom'">
+                    <post-create [id] = getID() [fandomId] = getFandomId() [type] = getType() [catagory] = getCatagory()></post-create>
+                </div>
+                <div *ngIf="getType() == 'map'">
+                    <map-create [id] = getID() [fandomId] = getFandomId() [type] = getType()></map-create>
+                </div>
+                <div *ngIf="getType() == 'timeline'">
+                    <timeline-create [id] = getID() [fandomId] = getFandomId() [type] = getType()></timeline-create>
+                </div>       
+            </div>
+        </div>
+
+        <ng-template #elseCreate>
+            <post-create [id] = getID() [fandomId] = getFandomId() [type] = getType() [catagory] = getCatagory()></post-create>
+        </ng-template>
+
+        <ng-template #elsePage>
+            <default [id] = getID() [fandomId] = getFandomId() [type] = getType()></default>
+        </ng-template>
+
+        <ng-template #elseView>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation"> 
+                <a class="navbar-brand" href="#" [routerLink]="['/post', getFandomId(), getFandomId(), 'fandom', 'fandom', 0]">{{post.name}}</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Explore
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item disabled" [routerLink]="['/searchfandom', id, name]">All</a>
+                            <a class="dropdown-item disabled" [routerLink]="['/searchfandom', id, name, 'post', 'article']">Articles</a>
+                            <a class="dropdown-item disabled" [routerLink]="['/searchfandom', id, name, 'post', 'character']">Characters</a>
+                            <a class="dropdown-item disabled" [routerLink]="['/searchfandom', id, name, 'post', 'event']">Events</a>
+                            <a class="dropdown-item disabled" [routerLink]="['/searchfandom', id, name, 'post', 'geography']">Geography</a>
+                        </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search {{post.name}}" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+            <div *ngIf="getType() != 'post'; else elsePage">
+                <div *ngIf="getType() == 'family-tree'">
+                    <family-tree [id] = getID() [fandomId] = getFandomId() [type] = getType()></family-tree>
+                </div>
+                <div *ngIf="getType() == 'fandom'">
+                    <fandom [id] = getID()></fandom>
+                </div>
+                <div *ngIf="getType() == 'map'">
+                    <map [id] = getID() [fandomId] = getFandomId() [type] = getType()></map>
+                </div>
+                <div *ngIf="getType() == 'timeline'">
+                    <timeline [id] = getID() [fandomId] = getFandomId() [type] = getType()></timeline>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

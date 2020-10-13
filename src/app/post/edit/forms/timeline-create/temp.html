@@ -1,0 +1,91 @@
+<div *ngFor="let event of getSlideArray(i, 'event').controls; let eventIndex=index" [formGroupName]="eventIndex">
+    <ng-template *ngIf="event.controls.end_date; then eventSpanSlideTemplate; else eventSlideTemplate"></ng-template>
+
+    <ng-template #eventSlideTemplate>
+        <div class="row">
+            <div class="row">
+                <p>EVENT</p>
+                
+            </div>
+            <div class="col-12">
+                <button (click)="removeSection(i)" class="btn btn-danger float-right">Remove</button>
+            </div>
+        </div> 
+    </ng-template>
+
+    <ng-template #eventSpanSlideTemplate>
+        <div class="row">
+            <div class="row">
+                <p>EVENT SPAN</p>
+                
+            </div>
+            <div class="col-12">
+                <button (click)="removeSection(i)" class="btn btn-danger float-right">Remove</button>
+            </div>
+        </div> 
+    </ng-template>
+
+</div>
+
+<div *ngFor="let era of getSlideArray(i, 'era').controls; let eraIndex=index" [formGroupName]="eraIndex">
+    <div class="row">
+        <div class="row">
+            <p>Era</p>
+            
+        </div>
+        <div class="col-12">
+            <button (click)="removeSlide(eraIndex, i, 'era')" class="btn btn-danger float-right">Remove Slide</button>
+        </div>
+    </div> 
+</div>
+
+
+
+
+
+
+
+
+
+
+<div *ngIf="getEdit(); else elseView">
+    <div *ngIf="getType() != 'post'; else elseCreate">
+        <div *ngIf="getType() == 'family-tree'">
+            <family-tree id = getID()></family-tree>
+        </div>
+        <div *ngIf="getType() == 'fandom'">
+            <fandom id = getID()></fandom>
+        </div>
+        <div *ngIf="getType() == 'map'">
+            <map id = getID()></map>
+        </div>
+        <div *ngIf="getType() == 'timeline'">
+            <timeline-create id = getID()></timeline-create>
+        </div>       
+    </div>
+</div>
+
+<ng-template #elseCreate>
+    <post-create id = getID()></post-create>
+</ng-template>
+
+<ng-template #elseBlock>
+    <page id = getID()></page>
+</ng-template>
+
+<ng-template #elseView>
+    <div *ngIf="getType() != 'post'; else elseBlock">
+        <div *ngIf="getType() == 'family-tree'">
+            <family-tree id = getID()></family-tree>
+        </div>
+        <div *ngIf="getType() == 'fandom'">
+            <fandom id = getID()></fandom>
+        </div>
+        <div *ngIf="getType() == 'map'">
+            <map id = getID()></map>
+        </div>
+        <div *ngIf="getType() == 'timeline'">
+            <timeline id = getID()></timeline>
+        </div>
+    </div>
+</ng-template>

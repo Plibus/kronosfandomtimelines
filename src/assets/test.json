@@ -1,0 +1,133 @@
+{
+    "pageTitle": "SAVED TITLE",
+    "sections": [
+        {
+            "type": "textRP",
+            "sectionTitle": "Insert textRP section title",
+            "text": "Insert textRP section text",
+            "media": "",
+            "mediaCaption": "",
+            "mediaAlt": "media alt",
+            "mediaCredit": "media credit"
+        },
+        {
+            "type": "timeline",
+            "title": "Insert timeline section title",
+            "description": "Insert timeline section text",
+            "timeline": {
+                "title": [
+                    {
+                        "text": {
+                            "headline": "slideTitleForm",
+                            "text": ""
+                        },
+                        "media": {
+                            "url": "",
+                            "caption": "",
+                            "credit": "",
+                            "thumbnail": "",
+                            "alt": "",
+                            "title": "",
+                            "link": "",
+                            "link_target": ""
+                        },
+                        "group": "",
+                        "background": {
+                            "url": "",
+                            "color": ""
+                        }
+                    }
+                ],
+                "event": [
+                    {
+                        "start_date": {
+                            "date": "",
+                            "display_date": ""
+                        },
+                        "text": {
+                            "headline": "Event Title",
+                            "text": ""
+                        },
+                        "media": {
+                            "url": "",
+                            "caption": "",
+                            "credit": "",
+                            "thumbnail": "",
+                            "alt": "",
+                            "title": "",
+                            "link": "",
+                            "link_target": ""
+                        },
+                        "group": "",
+                        "background": {
+                            "url": "",
+                            "color": ""
+                        },
+                        "autolink": ""
+                    },
+                    {
+                        "start_date": {
+                            "date": "",
+                            "display_date": ""
+                        },
+                        "end_date": {
+                            "date": "",
+                            "display_date": ""
+                        },
+                        "text": {
+                            "headline": "Event span title",
+                            "text": ""
+                        },
+                        "media": {
+                            "url": "",
+                            "caption": "",
+                            "credit": "",
+                            "thumbnail": "",
+                            "alt": "",
+                            "title": "",
+                            "link": "",
+                            "link_target": ""
+                        },
+                        "group": "",
+                        "background": {
+                            "url": "",
+                            "color": ""
+                        },
+                        "autolink": ""
+                    }
+                ],
+                "era": [
+                    {
+                        "start_date": {
+                            "date": "",
+                            "display_date": ""
+                        },
+                        "end_date": {
+                            "date": "",
+                            "display_date": ""
+                        },
+                        "text": {
+                            "headline": "slideEraForm",
+                            "text": ""
+                        },
+                        "group": "",
+                        "background": {
+                            "url": "",
+                            "color": ""
+                        },
+                        "autolink": ""
+                    }
+                ]
+            }
+        },
+        {
+            "type": "textRP",
+            "sectionTitle": "Insert textRP section title",
+            "text": "Insert textRP section text",
+            "media": "",
+            "mediaCaption": "",
+            "mediaAlt": "media alt",
+            "mediaCredit": "media credit"
+        }
+    ]
+}

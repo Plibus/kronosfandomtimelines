@@ -1,0 +1,136 @@
+export class Timeline {
+    constructor(
+        public title: string,
+        public timeline: JSON
+    ) {}
+}
+/*
+if ($row['type'] == 'title') {
+    $timeline['title']=array(
+                        'text'=>array(
+                            'headline'=>($row['text_headline']),
+                            'text'=>(getEvents($row['slide_id']))
+                        ),
+                        'media'=>array(
+                            'url'=>$mediaArr['media_url'],
+                            'caption'=>$mediaArr['media_caption'],
+                            'credit'=>$mediaArr['media_credit'],
+                            'thumbnail'=>$mediaArr['media_thumbnail'],
+                            'alt'=>$mediaArr['media_alt'],
+                            'title'=>$mediaArr['media_title'],
+                            'link'=>$mediaArr['media_link'],
+                            'link_target'=>$mediaArr['media_link_target']
+                        ),
+                        'group'=>$row['group_id'],
+                        'background'=>array(
+                            'url'=>$row['background_url'],
+                            'color'=>$row['background_color']
+                        ),
+                        'autolink'=>$row['autolink'],
+                        'unique_id'=>$row['slide_id']
+                    );
+    } elseif ($row['type'] == 'event') {
+        $timeline['events'][]=array(
+                                'start_date'=>array(
+                                    'year'=>($row['start_year']),
+                                    'month'=>($row['start_month']),
+                                    'day'=>($row['start_day']),
+                                    'hour'=>($row['start_hour']),
+                                    'minute'=>($row['start_minute']),
+                                    'display_date'=>($row['start_display_date'])
+                                ),
+                                'text'=>array(
+                                    'headline'=>($row['text_headline']),
+                                    'text'=>(getEvents($row['slide_id']))
+                                ),
+                                'media'=>array(
+                                    'url'=>$mediaArr['media_url'],
+                                    'caption'=>$mediaArr['media_caption'],
+                                    'credit'=>$mediaArr['media_credit'],
+                                    'thumbnail'=>$mediaArr['media_thumbnail'],
+                                    'alt'=>$mediaArr['media_alt'],
+                                    'title'=>$mediaArr['media_title'],
+                                    'link'=>$mediaArr['media_link'],
+                                    'link_target'=>$mediaArr['media_link_target']
+                                ),
+                                'group'=>$row['group_id'],
+                                'background'=>array(
+                                    'url'=>$row['background_url'],
+                                    'color'=>$row['background_color']
+                                ),
+                                'autolink'=>$row['autolink'],
+                                'unique_id'=>$row['slide_id']
+                            );
+} elseif ($row['type'] == 'event_span') {
+    $timeline['events'][]=array(
+                                'start_date'=>array(
+                                    'year'=>($row['start_year']),
+                                    'month'=>($row['start_month']),
+                                    'day'=>($row['start_day']),
+                                    'hour'=>($row['start_hour']),
+                                    'minute'=>($row['start_minute']),
+                                    'display_date'=>($row['start_display_date'])
+                                ),	
+                                'end_date'=>array(
+                                    'year'=>($row['end_year']),
+                                    'month'=>($row['end_month']),
+                                    'day'=>($row['end_day']),
+                                    'hour'=>($row['end_hour']),
+                                    'minute'=>($row['end_minute']),
+                                ),
+                                'text'=>array(
+                                    'headline'=>($row['text_headline']),
+                                    'text'=>(getEvents($row['slide_id']))
+                                ),
+                                'media'=>array(
+                                    'url'=>$mediaArr['media_url'],
+                                    'caption'=>$mediaArr['media_caption'],
+                                    'credit'=>$mediaArr['media_credit'],
+                                    'thumbnail'=>$mediaArr['media_thumbnail'],
+                                    'alt'=>$mediaArr['media_alt'],
+                                    'title'=>$mediaArr['media_title'],
+                                    'link'=>$mediaArr['media_link'],
+                                    'link_target'=>$mediaArr['media_link_target']
+                                ),
+                                'group'=>$row['group_id'],
+                                'background'=>array(
+                                    'url'=>$row['background_url'],
+                                    'color'=>$row['background_color']
+                                ),
+                                'autolink'=>$row['autolink'],
+                                'unique_id'=>$row['slide_id']
+                            );
+} elseif ($row['type'] == 'era') {
+    $timeline['eras'][]=array(
+                            'start_date'=>array(
+                                'year'=>($row['start_year']),
+                                'month'=>($row['start_month']),
+                                'day'=>($row['start_day']),
+                                'hour'=>($row['start_hour']),
+                                'minute'=>($row['start_minute']),
+                                'display_date'=>($row['start_display_date'])
+                            ),	
+                            'end_date'=>array(
+                                'year'=>($row['end_year']),
+                                'month'=>($row['end_month']),
+                                'day'=>($row['end_day']),
+                                'hour'=>($row['end_hour']),
+                                'minute'=>($row['end_minute']),
+                                'display_date'=>($row['end_display_date'])
+                            ),
+                            'text'=>array(
+                                'headline'=>($row['text_headline']),
+                                'text'=>(getEvents($row['slide_id']))
+                            ),
+                            'group'=>$row['group_id'],
+                            'background'=>array(
+                                'url'=>$row['background_url'],
+                                'color'=>$row['background_color']
+                            ),
+                            'autolink'=>$row['autolink'],
+                            'unique_id'=>$row['slide_id']
+                    );
+
+}
+}
+*/

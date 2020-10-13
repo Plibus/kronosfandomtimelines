@@ -1,0 +1,37 @@
+.edit-container {
+    background-color: wheat;   
+}
+
+.row {
+    padding: 0;
+    margin: 0;
+}
+
+.text-with-pic {
+    text-align: center;
+    display: block;
+}
+
+.img-container {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden; 
+}
+
+.img-container .img-to-fit {
+    flex: 1;
+    height: 100%;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    float: none;
+    left: 50%;
+}
+
+.hide {
+    display: none;
+}

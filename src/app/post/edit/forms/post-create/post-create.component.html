@@ -1,0 +1,106 @@
+<div class="fluid-container edit-container">
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="postForm" enctype="multipart/form-data" (ngSubmit)="onSubmit(postForm.value)">
+                <div class="row">
+                    <div class="form-group">
+                        <br>
+                        <input type="text" formControlName="name" class="form-control" maxlength="50">
+                        <br>
+                        <input type="text" formControlName="description" class="form-control" maxlength="150">
+                        <label>Provide a short description of the {{type}} (maximum 150 character)</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label>Select a section type from the drop down and click "Add Section" to add sections to your {{type}}</label>
+                        <select class="form-control" (change)="selectSectionOption($event.target.value)" class="form-control">
+                            <option *ngFor="let sectionType of sectionTypes" [value]="sectionType.index">{{ sectionType.name }}</option>
+                        </select>
+                        <div class="col-12">
+                            <button type="button" class="btn btn-dark float-right" (click)="addSection('sections')">Add Section</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <ng-container formArrayName="sections">
+                        <div *ngFor="let section of getSection('sections').controls; let i=index" [formGroupName]="i">
+                            
+                                <ng-template *ngIf="section.controls.type.value == 'text'; then textTemplate"></ng-template>
+                                <ng-template *ngIf="section.controls.type.value == 'textRP'; then textRPTemplate"></ng-template>
+                                <ng-template *ngIf="section.controls.type.value == 'textLP'; then textLPTemplate"></ng-template>
+                                
+                                <ng-template #textTemplate>
+                                    <div class="row">
+                                        <div class="row">
+                                            <input type="text" formControlName="sectionTitle" class="form-control" maxlength="100">
+                                            <div class="col-12 quill-container">
+                                                <quill-editor formControlName="text" [styles]="{height: '370px'}"></quill-editor>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button (click)="removeSection('sections', i)" class="btn btn-danger float-right">Remove</button>
+                                       </div>
+                                    </div> 
+                                </ng-template>
+
+                                <ng-template #textRPTemplate>
+                                    <div class="row">
+                                        <input type="text" formControlName="sectionTitle" class="form-control" maxlength="100">
+                                        <div class="col-8 quill-container">
+                                            <quill-editor formControlName="text" [styles]="{height: '370px'}"></quill-editor>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="img-container">
+                                                        <img class="img-to-fit" [id]="'imagePreview' + i" [src]=section.controls.media.value [alt]=section.controls.mediaAlt.value onerror="this.onerror=null; this.src= '../../../../assets/no-image.png'">
+                                                    </div>
+                                                    <p class="card-text">{{section.controls.mediaCaption.value}}</p>
+                                                </div>
+                                            </div>
+                                            <select class="form-control" (change)="selectedImage($event.target.value, i)" formControlName="media">
+                                                <option *ngFor="let image of images">{{image.mediaCaption}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                             <button (click)="removeSection('sections', i)" class="btn btn-danger float-right">Remove</button>
+                                        </div>
+                                    </div>                       
+                                </ng-template>
+
+                                <ng-template #textLPTemplate>
+                                    <div class="row">
+                                        <input type="text" formControlName="sectionTitle" class="form-control" maxlength="100">
+                                        <div class="col-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="img-container">
+                                                        <img class = "img-to-fit" [id]="'imagePreview' + i" [src]=section.controls.media.value [alt]=section.controls.mediaAlt.value onerror="this.onerror=null; this.src= '../../../../assets/no-image.png'">
+                                                    </div>
+                                                    <p class="card-text">{{section.controls.mediaCaption.value}}</p>
+                                                </div>
+                                            </div>
+                                            <select class="form-control" (change)="selectedImage($event.target.value, i)" formControlName="media">
+                                                <option *ngFor="let image of images; let i=index" [value]=i>{{image.mediaCaption}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-8 quill-container">
+                                            <quill-editor formControlName="text" [styles]="{height: '370px'}"></quill-editor>
+                                        </div>
+                                        <div class="col-12">
+                                             <button (click)="removeSection('sections', i)" class="btn btn-danger float-right">Remove</button>
+                                        </div> 
+                                    </div>
+                                </ng-template>
+                            <hr>
+                        </div>
+                    </ng-container>
+                </div>
+                <button class="btn btn-dark float-right" type="submit" value="Submit">{{finished}}</button>
+            </form>
+        </div>
+    </div>
+    <div class="row hide">
+        {{postForm.value | json}}
+    </div>
+</div>

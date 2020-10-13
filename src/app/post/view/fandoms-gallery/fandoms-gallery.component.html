@@ -1,0 +1,27 @@
+<div class="fluid-container page-content">
+    <ul id="list">
+        <li *ngFor="let image of images$ | async">
+            <img class = "img-to-fit galllery-image" [src]=image.media [alt]=image.mediaAlt onerror="this.onerror=null; this.src= '../../../../assets/no-image.png'">
+            <p>{{image.mediaCaption}}</p>
+        </li>
+    </ul>
+    <button type="button" class="btn btn-dark" (click)="displayPopup('popup')">Upload Image</button>
+    <form class="fluid-container" [formGroup]="uploadForm" enctype="multipart/form-data" (ngSubmit)="onSubmit()">
+        <div class="popup row" id="popup">
+            <div class="col-6">
+                <div class="img-container">
+                    <img class = "img-to-fit" [id]="'imagePreview'" [src]="defaultImage" alt="Preview">
+                </div>
+            </div>
+            <div class="col-6">
+                <input type="file" accept="image/*" name="media" class="form-control" (change)="onFileSelect($event)">
+                <input type="text" name="mediaCaption" formControlName="mediaCaption" class="form-control">
+                <input type="text" name="mediaAlt" formControlName="mediaAlt" class="form-control">
+                <input type="text" name="mediaCredit" formControlName="mediaCredit" class="form-control">
+                <button type="button" class="btn btn-dark" (click)="closePopup('popup')">Close</button>
+                <button class="btn btn-dark float-right" type="submit" value="submit">UPLOAD</button>
+            </div>
+        </div>
+    </form>
+</div>
+        
